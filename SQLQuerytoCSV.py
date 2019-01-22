@@ -24,7 +24,7 @@ result = cursor.fetchall()
 column_names = [i[0] for i in cursor.description]
 fp = open("UHCDailyJobs.csv", "w")
 myFile = csv.writer(fp, lineterminator = '\n')
-myFile.writerow(column_names)
+myFile.writerow(column_names+["Status"])
 myFile.writerows(result)
 fp.close()
 #print('result = %r' % (result))
