@@ -12,7 +12,9 @@ import csv
 
 #Masterfully crafted by Cameron Lewis
 #userNamme = f"dai\\cameron.lewis"
-userNamme = input("Enter your DAI or ODS account name, including the DAI\\ or ODS\\: ")
+userNamme = input("Enter your DAI or ODS account name, including the DAI\\ or ODSDAI\\: ")
+passWurd = getpass.getpass(prompt='What is your ODS Grant Access Password?: ')
+print('"""""""""""\n Please wait while your access is granted. You should receive your usual notification email if this is successful.\n"""""""""""\n')
 
 firefox_options = Options()
 firefox_options.add_argument("--headless")
@@ -22,7 +24,7 @@ wait = WebDriverWait(driver, 10)
 WebDriverWait(driver, 1).until(ec.alert_is_present())
 alert = Alert(driver)
 #alert.send_keys(f"dai\\cameron.lewis{Keys.TAB}{input('What is your ODS Grant Access Password?')}{Keys.ENTER}")
-alert.send_keys(f"{userNamme}{Keys.TAB}{input('What is your ODS Grant Access Password?: ')}{Keys.ENTER}")
+alert.send_keys(f"{userNamme}{Keys.TAB}{passWurd}{Keys.ENTER}")
 actions = ActionChains(driver)
 
 
